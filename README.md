@@ -18,7 +18,8 @@ export type ModelStore = {
 ### Define Builder
 YAMSM has two phases the [Build phase](https://todo) and the [Consume phase](https://TODO) the Build phase is where we define our [Transforms](https://TODO), [Syncs](https://TODO) etc... The Consume phase is where the UI interacts with the store via [Dispatch](https://TODO) and [Subcriptions](https://TODO) once the [Store](https://TODO) has been created.
 ```typescript
-import { createStoreBuilder, Store } from '@warrennenslin/yamsm'
+//store.js
+import { createStoreBuilder } from '@warrennenslin/yamsm'
 
 export type ModelStore = {
     status: 'not started' | 'fetching' | 'complete'
@@ -48,6 +49,52 @@ What is happening here is when a "FETCH" action is dispatched the state of the s
 ### Consume the Store
 Once you have defined your [Store](https://TODO) with the [Modules](https://TODO) you require and built an instance of the store with the [StoreBuilder](https://TODO) you can then go ahead and use the [Dispatch](https://TODO) and [Subcriptions](https://TODO) functions of the store. The store is a singleton and will keep its state throughout the lifetime of your app.
 ```typescript
+import { store } from 'store'
+import { Component, State, h } from '@stencil/core'
+
+@Component({tag: 'custom-component'})
+export class CustomComponent {
+  @State() status: string
+  @State() message: string
+  @State() data: any[]
+  @State() hasErrors: bool
+
+  unsubscribe: any
+
+  componentWillLoad() {
+    this.unsubscribe = store.watch(({ state }) => {
+        this.status = state.status
+        this.message = state.errorMessage
+        this.data = state.data
+        this.hasErrors = state.hasErrors
+    })
+  }
+
+  componentDidUnload() {
+    this.unsubscribe && this.unsubscribe()
+  }
+
+  fetch() {
+      store.dispatch('FETCH')
+  }
+
+  render() {
+    return (
+        <div>
+            {this.message 
+             ? <span>Error{ this.message }</span>
+             : <span></span>
+            }
+            <span>Status{ this.status }</span>
+            {this.data.map((item) =>
+                <div>{ item }</div>
+            )}
+            <button onClick={() => this.fetch()}>Fetch</button>
+        </div>
+    );
+  }
+}
 ```
+In this example we are using a [stencijs Component](https://stenciljs.com/docs/component). First the store is imported from the store builder created earlier. With the store we can [watch](https://TODO) for changes to the state. The watch callback allows the component state to be updated each time the store is changed. The return value of a watch is an unsubscribe function that is used when the component does its clean up to deregister the callback from the store. To call an action the fetch function calls the dispatch function on the store kick off the cycle defined earlier in the store builder. When the result of the "FETCH" action completes the watch callback will fire with the updated state from the store.
 ## Process Flow
 ![Lifecycle](StateFlow.png)
