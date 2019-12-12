@@ -1,2 +1,2 @@
-# yamsm
-Yet Another Modular State Management
+# Yet Another Modular State Management
+
