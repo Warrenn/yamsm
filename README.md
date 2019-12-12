@@ -6,7 +6,7 @@ YAMSM is a modular state management framework. YAMSM attempts to reduce the boil
 npm i @warrennenslin/yamsm
 ```
 ### Define Model
-YAMSM is built with [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html) so the first step is to define the structure of your store's model. Just a note that YAMSM is a composable framework which allows you to combine multiple models to represent your store so you don't have to get the Model right from the start time you can instead compose you model from multiple model definitions.
+YAMSM is built with [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html) so the first step is to define the structure of your store's model. Just a note that YAMSM is a composable framework which allows you to combine multiple models to represent your store so you don't have to get the model right from the start you can instead compose your model from multiple model definitions if you so chose.
 ```typescript
 export type ModelStore = {
     status: 'not started' | 'fetching' | 'complete'
