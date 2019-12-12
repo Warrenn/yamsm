@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/Warrenn/yamsm#readme",
   "dependencies": {
-    "lerna": "^3.19.0"
+    "lerna": "3.19.0"
   }
 }
