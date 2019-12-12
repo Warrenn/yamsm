@@ -25,9 +25,4 @@ Once you have defined your [Store](https://TODO) with the [Modules](https://TODO
 ```typescript
 ```
 ## Lifecycle
-```mermaid
-graph TD
-A[Client] --> B[Load Balancer]
-B --> C[Server01]
-B --> D[Server02]
-```
+![Lifecycle](StateFlow.png)
