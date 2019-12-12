@@ -21,6 +21,13 @@ YAMSM has two phases the [Build phase](https://todo) and the [Consume phase](htt
 
 ```
 ### Consume the Store
-Once you have defined your [Store](https://TODO) with the [Modules](https://TODO) your require and built an instance of the store with the [StoreBuilder](https://TODO) you can then go ahead and use the [Dispatch](https://TODO) and [Subcriptions](https://TODO) functions of the store. The store is a singleton and will keep its state throughout the lifetime of your app.
+Once you have defined your [Store](https://TODO) with the [Modules](https://TODO) you require and built an instance of the store with the [StoreBuilder](https://TODO) you can then go ahead and use the [Dispatch](https://TODO) and [Subcriptions](https://TODO) functions of the store. The store is a singleton and will keep its state throughout the lifetime of your app.
 ```typescript
+```
+## Lifecycle
+```mermaid
+graph TD
+A[Client] --> B[Load Balancer]
+B --> C[Server01]
+B --> D[Server02]
 ```
