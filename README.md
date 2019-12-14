@@ -16,7 +16,7 @@ export type ModelStore = {
 }
 ```
 ### Define Builder
-YAMSM has two phases the [Build phase](https://todo) and the [Consume phase](https://TODO) the Build phase is where we define our [Transforms](https://TODO), [Syncs](https://TODO) etc... The Consume phase is where the UI interacts with the store via [Dispatch](https://TODO) and [Subcriptions](https://TODO) once the [Store](https://TODO) has been created.
+YAMSM has two phases the [Build phase](https://github.com/Warrenn/yamsm/wiki/Store#Build) and the [Consume phase](https://github.com/Warrenn/yamsm/wiki/Store#Consume) the Build phase is where we define our [Transforms](https://TODO), [Asyncs](https://TODO) etc... The Consume phase is where the UI interacts with the store via [Dispatch](https://TODO) and [Subcriptions](https://TODO) once the [Store](https://TODO) has been created.
 ```typescript
 //store.js
 import { createStoreBuilder } from '@warrennenslin/yamsm'
