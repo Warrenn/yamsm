@@ -1,12 +1,12 @@
 # Yet Another Modular State Management
-
--## Getting Started
+YAMSM is a modular state management framework. YAMSM attempts to reduce the boilerplate that plague state management frameworks by adopting an API first design approach. YAMSM is built to be framework agnostic.
+## Getting Started
 ### Installation
 ```sh
 npm i @warrennenslin/yamsm
 ```
 ### Define Model
-YAMSM is built with [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html) so the first step is to define the structure of your store's model. Just a note that YAMSM is a composable framework which allows you to combine multiple models to represent your store so you don't have to get the model right from the start you can instead compose your model from multiple model definitions if you so chose. Take a look at the [[Wiki|wiki]] for more info.
+YAMSM is built with [Typescript Generics](https://www.typescriptlang.org/docs/handbook/generics.html) so the first step is to define the structure of your store's model. Just a note that YAMSM is a composable framework which allows you to combine multiple models to represent your store so you don't have to get the model right from the start you can instead compose your model from multiple model definitions if you so chose.
 ```typescript
 export type ModelStore = {
     status: 'not started' | 'fetching' | 'complete'
@@ -16,7 +16,7 @@ export type ModelStore = {
 }
 ```
 ### Define Builder
-YAMSM has two phases the [Build phase](wiki/store) and the [Consume phase](https://TODO) the Build phase is where we define our [Transforms](https://TODO), [Asyncs](https://TODO) etc... The Consume phase is where the UI interacts with the store via [Dispatch](https://TODO) and [Subcriptions](https://TODO) once the [Store](https://TODO) has been created.
+YAMSM has two phases the [Build phase](https://todo) and the [Consume phase](https://TODO) the Build phase is where we define our [Transforms](https://TODO), [Syncs](https://TODO) etc... The Consume phase is where the UI interacts with the store via [Dispatch](https://TODO) and [Subcriptions](https://TODO) once the [Store](https://TODO) has been created.
 ```typescript
 //store.js
 import { createStoreBuilder } from '@warrennenslin/yamsm'
@@ -95,6 +95,6 @@ export class CustomComponent {
   }
 }
 ```
-In this example we are using a [stenciljs Component](https://stenciljs.com/docs/component). First the store is imported from the store builder created earlier. With the store we can [watch](https://TODO) for changes to the state. The watch callback allows the component state to be updated each time the store is changed. The return value of a watch is an unsubscribe function that is used when the component does its clean up to deregister the callback from the store. To call an action the fetch function calls the dispatch function on the store kick off the cycle defined earlier in the store builder. When the result of the "FETCH" action completes the watch callback will fire with the updated state from the store.
+In this example we are using a [stencijs Component](https://stenciljs.com/docs/component). First the store is imported from the store builder created earlier. With the store we can [watch](https://TODO) for changes to the state. The watch callback allows the component state to be updated each time the store is changed. The return value of a watch is an unsubscribe function that is used when the component does its clean up to deregister the callback from the store. To call an action the fetch function calls the dispatch function on the store kick off the cycle defined earlier in the store builder. When the result of the "FETCH" action completes the watch callback will fire with the updated state from the store.
 ## Process Flow
 ![Lifecycle](StateFlow.png)
