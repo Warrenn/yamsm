@@ -1,5 +1,5 @@
 # Yet Another Modular State Management
-YAMSM is a modular state management framework. YAMSM attempts to reduce the boilerplate that plague state management frameworks by adopting an API first design approach. YAMSM is built to be framework agnostic.
+YAMSM is a modular state management framework. YAMSM attempts to reduce the boilerplate that plague state management frameworks by adopting an API first design approach. YAMSM is built to be framework agnostic. Take a look at the [Wiki](wiki/home.md)
 ## Getting Started
 ### Installation
 ```sh
