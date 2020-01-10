@@ -17,7 +17,7 @@ export type ModelStore = {
 }
 ```
 ### Define A Builder
-Before you can create a store instance you need to first create a [Builder](https://github.com/Warrenn/yamsm/wiki/Builder) the Builder allows you to define your [Transforms](https://github.com/Warrenn/yamsm/wiki/Transforms) and [Asyncs](https://github.com/Warrenn/yamsm/wiki/Asyncs) as well as other directives which manage the behaviour of your store. Only once you created a store instance can you [Dispatch](https://github.com/Warrenn/yamsm/wiki/Store#dispatch) an action or [Watch](https://github.com/Warrenn/yamsm/wiki/Store#watch) for changes made to the store's state.
+Before you can create a store instance you need to first create a [Builder](https://github.com/Warrenn/yamsm/wiki/Builder) the Builder allows you to define your [Transforms](https://github.com/Warrenn/yamsm/wiki/Transforms) and [Asyncs](https://github.com/Warrenn/yamsm/wiki/Async) as well as other directives which manage the behaviour of your store. Only once you created a store instance can you [Dispatch](https://github.com/Warrenn/yamsm/wiki/Store#dispatch) an action or [Watch](https://github.com/Warrenn/yamsm/wiki/Store#watch) for changes made to the store's state.
 ```typescript
 //store.js
 import { createStoreBuilder } from '@warrennenslin/yamsm'
@@ -97,5 +97,5 @@ export class CustomComponent {
 }
 ```
 In this example we are using a [Stencijs Component](https://stenciljs.com/docs/component). First the store is imported from the store builder created earlier. With the store instance we can [Watch](https://github.com/Warrenn/yamsm/wiki/Store#watch) for changes to the state. The watch requires a callback function which is fired whenenver the state is changed passing in the new state of the store at the time of change. The return value of a watch is an unsubscribe function that is used when the component does its clean up to deregister the watch callback from the store and to stop listening for any further state changes. To initiate the "FETCH" workflow we define earlier in our [Builder](https://github.com/Warrenn/yamsm/wiki/Builder) we create a fetch function and call [Dispatch](https://github.com/Warrenn/yamsm/wiki/Store#dispatch) on our store instance to dispatch the "FETCH" action. When the state of the store is changed the watch callback will fire with the updated state consequently updating the state of the component.
-## Process Flow
+## YAMSM State Management Lifecycle
 ![Lifecycle](StateFlow.png)
